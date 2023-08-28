@@ -1,0 +1,18 @@
+name: Tooling
+
+on:
+  pull_request:
+
+concurrency:
+  # Create run based on branch ref to prevent all uses of workflow canceling/queueing
+  # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-only-cancel-in-progress-jobs-or-runs-for-the-current-workflow
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Cancel earlier runs on branch
+  cancel-in-progress: true
+
+jobs:
+  all-cops-are-bastards:
+    name: All Cops Are Bastards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: broffis/reusable-workflows/.github/workflows/commit-cop.yml@main
