@@ -12,7 +12,4 @@ concurrency:
 
 jobs:
   all-cops-are-bastards:
-    name: All Cops Are Bastards
-    runs-on: ubuntu-latest
-    steps:
-      - uses: broffis/reusable-workflows/.github/workflows/commit-cop.yml@main
+    uses: broffis/reusable-workflows/.github/workflows/commit-cop.yml@main
