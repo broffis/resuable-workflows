@@ -1,0 +1,16 @@
+name: Commit Cop
+
+on:
+  workflow_call:
+
+jobs:
+  get-commit-info:
+    name: Get commit info
+    runs-on: ubuntu-latest
+    steps:
+      - id: fetch
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const run = require('.github/scripts/commit-cop.js');
+            run({ github })
