@@ -12,5 +12,5 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const run = require('.github/scripts/fetch-pr-info.js');
+            const run = require('.github/scripts/commit-cop.js');
             run({ github })
