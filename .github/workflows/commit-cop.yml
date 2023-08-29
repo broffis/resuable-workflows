@@ -14,4 +14,4 @@ jobs:
         with:
           script: |
             const run = require('.github/scripts/fetch-pr-info.js');
-            await run({ github })
+            await run({ github, context })
