@@ -1,4 +1,4 @@
-module.exports = ({ github, context }) => {
+module.exports = async ({ github, context }) => {
   const {
     name,
     owner: { login },
@@ -6,9 +6,9 @@ module.exports = ({ github, context }) => {
 
   const { number } = context.payload;
 
-  const commits = github.rest.pulls.listCommits({
-    repo: name,
+  const commits = await github.rest.pulls.listCommits({
     owner: login,
+    repo: name,
     pull_number: number,
   });
 
