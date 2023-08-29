@@ -12,5 +12,7 @@ module.exports = async ({ github, context }) => {
     pull_number: number,
   });
 
-  console.log({ data });
+  data.forEach((c) => {
+    console.log({ sha: c.sha, commit: c.commit });
+  });
 };
