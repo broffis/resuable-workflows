@@ -12,4 +12,4 @@ concurrency:
 
 jobs:
   all-cops-are-bastards:
-    uses: broffis/reusable-workflows/.github/workflows/commit-cop.yml@main
+    uses: broffis/reusable-workflows/.github/workflows/commit-cop.yml@tooling
