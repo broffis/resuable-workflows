@@ -1,4 +1,4 @@
-module.exports = async ({ github, context }) => {
+module.exports = async ({ github, context, core }) => {
   const {
     name,
     owner: { login },
@@ -13,7 +13,6 @@ module.exports = async ({ github, context }) => {
   });
 
   const commits = data.map((c) => ({ sha: c.sha, message: c.commit.message }));
-  console.log({ commits });
 
-  return commits;
+  core.setOutput("commits", JSON.stringify(commits));
 };
