@@ -8,6 +8,7 @@ jobs:
     name: Get commit info
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - id: fetch
         uses: actions/github-script@v6
         with:
