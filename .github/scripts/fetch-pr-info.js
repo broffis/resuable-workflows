@@ -12,7 +12,7 @@ module.exports = async ({ github, context }) => {
     pull_number: number,
   });
 
-  const commits = data.map((c) => ({ sha: c.sha, commit: c.commit }));
+  const commits = data.map((c) => ({ sha: c.sha, message: c.commit.message }));
   console.log({ commits });
 
   return commits;
