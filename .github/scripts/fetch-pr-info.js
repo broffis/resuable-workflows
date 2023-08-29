@@ -6,11 +6,11 @@ module.exports = async ({ github, context }) => {
 
   const { number } = context.payload;
 
-  const { commits } = await github.rest.pulls.listCommits({
+  const { data } = await github.rest.pulls.listCommits({
     owner: login,
     repo: name,
     pull_number: number,
   });
 
-  console.log({ commits });
+  console.log({ data });
 };
