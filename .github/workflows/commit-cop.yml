@@ -7,10 +7,13 @@ jobs:
   get-commit-info:
     name: Get commit info
     runs-on: ubuntu-latest
+    outputs:
+      commits: ${{ steps.fetch.outputs.commits }}
     steps:
+      - uses: actions/checkout@v3
       - id: fetch
         uses: actions/github-script@v6
         with:
           script: |
-            const run = require('.github/scripts/commit-cop.js');
-            run({ github })
+            const run = require('.github/scripts/fetch-pr-info.js');
+            await run({ github, context, core })
